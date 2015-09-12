@@ -12,13 +12,13 @@ myApp.controller('MainCtrl', function ($scope){
       $scope.todos.push($scope.newItem);
       $scope.newItem = "";
     }
-  }
+  };
     
   $scope.deleteItem = function(item){
     console.log("in delete");
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
-  }
+  };
     
   
 });
