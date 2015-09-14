@@ -2,3 +2,8 @@
 body {
   background: green;
 }
+
+/* to change the text style when complete */
+.complete {
+	text-decoration:line-through;
+}
