@@ -29,9 +29,8 @@
       <ul class="list-group">
         <!-- http://www.w3schools.com/css/css_float.asp -->
         <li class="list-group-item clearfix" ng-repeat="do in todos">
-          
-          <span>{{do}}</span>
-          <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
+          <span>{{do.text}}</span>
+          <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem($index)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
 
