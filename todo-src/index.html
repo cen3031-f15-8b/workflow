@@ -13,17 +13,17 @@
     <h1 class="text-center">My little to do app!</h1>
     
     <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
-  
+    <form>
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem">
           <span class="input-group-btn">
-            <button class="btn btn-default" type="button" ng-click="addItem()">
+            <button class="btn btn-default" type="submit" ng-click="addItem()">
               Add
               <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
             </button>
           </span>
         </div><!-- /input-group -->
-        
+        </form>
       <h2>stuff i gotta do asap</h2>
       
       <ul class="list-group">
