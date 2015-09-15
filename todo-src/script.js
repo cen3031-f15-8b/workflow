@@ -31,7 +31,6 @@ myApp.controller('MainCtrl', function ($scope){
     console.log("in delete");
     $scope.todos.splice(index, 1);
   }
-
   $scope.completeItem = function(index) {
     console.log("in complete");
     $scope.todos.textDecoration = "line-through";

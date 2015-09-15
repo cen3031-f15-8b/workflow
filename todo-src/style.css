@@ -3,8 +3,8 @@ body {
   background: green;
 }
 
+
 /* Styling for complete */
 
 #complete {
 	text-decoration: line-through;
-}
