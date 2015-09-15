@@ -13,6 +13,8 @@ myApp.controller('MainCtrl', function ($scope){
     }
   ];
 
+  $scope.completeItems = [];
+
   $scope.newItem = "";
 
   $scope.addItem = function(){
@@ -29,8 +31,15 @@ myApp.controller('MainCtrl', function ($scope){
     console.log("in delete");
     $scope.todos.splice(index, 1);
   }
-    
   
+  $scope.completeItem = function(index) {
+    console.log("in complete");
+    $scope.completeItems.push({
+      text: $scope.todos[index].text,
+    });
+    $scope.deleteItem(index);
+  }
+
 });
 
 /*************************

@@ -34,8 +34,21 @@
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
 
+          <!-- Complete Button -->
+          <button class = "btn btn-success pull-right" type="button" ng-click="completeItem($index)">
+            <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+          </button>
         </li>
       </ul>
+
+      <!-- Completed Items List -->
+      <h2> Completed Items </h2>
+      <ul class="list-group" id="complete">
+        <li class="list-group-item clearfix" ng-repeat="el in completeItems">
+        <span>{{el.text}}</span>
+        </li>
+      </ul>  
+
     </div>
     
   </body>
