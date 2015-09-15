@@ -36,26 +36,25 @@ myApp.controller('MainCtrl', function ($scope){
       $scope.newItem = "";
       $scope.newItemPriority = priority.NOW;
     }
-  }
+  };
 
-  $scope.toggleEditMode = function()
-  {
+  $scope.toggleEditMode = function(){
     console.log("in edit");
     $scope.editmode = !($scope.editmode);
-  }
+  };
 
   $scope.deleteItem = function(index){
     console.log("in delete");
     $scope.todos.splice(index, 1);
-  }
+  };
 
-  $scope.completeItem = function(index) {
+  $scope.completeItem = function(index){
     console.log("in complete");
     $scope.completeItems.push($scope.todos[index]);
     $scope.deleteItem(index);
-  }
+  };
 
-  $scope.clearCompletedItems = function() {
+  $scope.clearCompletedItems = function(){
     console.log("in clearCompletedItems");
     $scope.completeItems.length = 0;
   }
