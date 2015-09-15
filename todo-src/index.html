@@ -45,7 +45,9 @@
       <!-- Completed Items List -->
       <h2> Completed Items </h2>
       <ul class="list-group" id="complete">
-        <li class="list-group-item clearfix" ng-repeat="el in completeItems">
+        <li class="list-group-item clearfix" ng-class="{'list-group-item-danger': el.priority==priorities.NOW,
+                                                        'list-group-item-warning': el.priority==priorities.TOMORROW,
+                                                        'list-group-item-info': el.priority==priorities.SOMEDAY}" ng-repeat="el in completeItems">
         <span>{{el.text}}</span>
         </li>
       </ul>  
