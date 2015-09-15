@@ -42,17 +42,19 @@
         </li>
       </ul>
 
-      <h2> This shit is DONE, yo. </h2>
+      <!-- Completed Items List -->
+      <h2> 
+        Completed Items 
+      </h2>
       <ul class="list-group" id="complete">
         <li class="list-group-item clearfix" ng-repeat="el in completeItems">
         <span>{{el.text}}</span>
         </li>
-      </ul>
-
-        <!-- clear button -->
-        <button class = "btn btn-success pull-right" type="button" ng-click="clear()">
-          <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-        </button>      
+      </ul>  
+      <!-- Clear Completed Items Button -->
+      <button class="btn btn-danger" type="button" ng-click="clearCompletedItems()">
+        Clear Completed Items
+      </button>
 
     </div>
     

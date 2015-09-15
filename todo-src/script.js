@@ -31,6 +31,7 @@ myApp.controller('MainCtrl', function ($scope){
     console.log("in delete");
     $scope.todos.splice(index, 1);
   }
+  
   $scope.completeItem = function(index) {
     console.log("in complete");
     $scope.completeItems.push({
@@ -38,11 +39,12 @@ myApp.controller('MainCtrl', function ($scope){
     });
     $scope.deleteItem(index);
   }
-  /* Testing out the clear function */
-  $scope.clear = function() {
+
+  $scope.clearCompletedItems = function() {
+    console.log("in clearCompletedItems");
     $scope.completeItems.length = 0;
   }
-  
+
 });
 
 /*************************
