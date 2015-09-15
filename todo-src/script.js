@@ -40,6 +40,11 @@ myApp.controller('MainCtrl', function ($scope){
     $scope.deleteItem(index);
   }
 
+  $scope.clearCompletedItems = function() {
+    console.log("in clearCompletedItems");
+    $scope.completeItems.length = 0;
+  }
+
 });
 
 /*************************
