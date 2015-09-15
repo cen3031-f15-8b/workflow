@@ -11,9 +11,9 @@
 
   <body ng-app="app">
     <h1 class="text-center">My little to do app!</h1>
-    
+
     <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
-    <form>
+      <form>
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem">
           <span class="input-group-btn">
@@ -23,13 +23,15 @@
             </button>
           </span>
         </div><!-- /input-group -->
-        </form>
+      </form>
       <h2>stuff i gotta do asap</h2>
-      
+      <button id="editorBtn" class="pull-right btn btn-default" type="button" ng-click="toggleEditMode()">{{editmode ? 'Done' : 'Edit Todo List'}}</button>
+      <br>
+      <br>
       <ul class="list-group">
         <!-- http://www.w3schools.com/css/css_float.asp -->
         <li class="list-group-item clearfix" ng-repeat="do in todos">
-          <span>{{do.text}}</span>
+          <span ng-attr-contenteditable="{{ editmode }}">{{do.text}}</span>
           <div class="btn-group pull-right">
             <!-- Complete Button -->
             <button class = "btn btn-success" type="button" ng-click="completeItem($index)">
@@ -44,21 +46,21 @@
       </ul>
 
       <!-- Completed Items List -->
-      <h2> 
-        Completed Items 
+      <h2>
+        Completed Items
       </h2>
       <ul class="list-group" id="complete">
         <li class="list-group-item clearfix" ng-repeat="el in completeItems">
         <span>{{el.text}}</span>
         </li>
-      </ul>  
+      </ul>
       <!-- Clear Completed Items Button -->
       <button class="btn btn-danger" type="button" ng-click="clearCompletedItems()">
         Clear Completed Items
       </button>
 
     </div>
-    
+
   </body>
 
 </html>
