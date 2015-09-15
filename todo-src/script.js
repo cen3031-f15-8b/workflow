@@ -38,6 +38,12 @@ myApp.controller('MainCtrl', function ($scope){
     }
   }
 
+  $scope.toggleEditMode = function()
+  {
+    console.log("in edit");
+    $scope.editmode = !($scope.editmode);
+  }
+
   $scope.deleteItem = function(index){
     console.log("in delete");
     $scope.todos.splice(index, 1);
@@ -47,6 +53,11 @@ myApp.controller('MainCtrl', function ($scope){
     console.log("in complete");
     $scope.completeItems.push($scope.todos[index]);
     $scope.deleteItem(index);
+  }
+
+  $scope.clearCompletedItems = function() {
+    console.log("in clearCompletedItems");
+    $scope.completeItems.length = 0;
   }
 
 });
@@ -60,5 +71,5 @@ myApp.controller('MainCtrl', function ($scope){
  * - make it prettier
  * - add a due date
  * - add reminder (setInterval)
- * 
+ *
  * *********************/
