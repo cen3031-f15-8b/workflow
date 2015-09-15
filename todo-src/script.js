@@ -33,11 +33,14 @@ myApp.controller('MainCtrl', function ($scope){
   }
   $scope.completeItem = function(index) {
     console.log("in complete");
-    $scope.todos.textDecoration = "line-through";
     $scope.completeItems.push({
-      text: $scope.do,
+      text: $scope.todos[index].text,
     });
     $scope.deleteItem(index);
+  }
+  /* Testing out the clear function */
+  $scope.clear = function() {
+    $scope.completeItems.length = 0;
   }
   
 });

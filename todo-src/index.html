@@ -33,16 +33,10 @@
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem($index)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
-          <!-- This is the complete button -->
-          <button class = "btn btn-success pull-right" type="button" ng-click="completeItem(do)"> 
-            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-          </button>
-
-
 
           <!-- Complete Button -->
           <button class = "btn btn-success pull-right" type="button" ng-click="completeItem($index)">
-            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
           </button>
         </li>
       </ul>
@@ -53,6 +47,11 @@
         <span>{{el.text}}</span>
         </li>
       </ul>
+
+        <!-- clear button -->
+        <button class = "btn btn-success pull-right" type="button" ng-click="clear()">
+          <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+        </button>      
 
     </div>
     
