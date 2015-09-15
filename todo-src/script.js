@@ -57,7 +57,7 @@ myApp.controller('MainCtrl', function ($scope){
   $scope.clearCompletedItems = function(){
     console.log("in clearCompletedItems");
     $scope.completeItems.length = 0;
-  }
+  };
 
 });
 
