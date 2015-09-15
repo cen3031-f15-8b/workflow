@@ -26,12 +26,17 @@ myApp.controller('MainCtrl', function ($scope){
       $scope.newItem = "";
     }
   }
-    
+  $scope.toggleEditMode = function()
+  {
+    console.log("in edit");
+    $scope.editmode = !($scope.editmode);
+  }
+
   $scope.deleteItem = function(index){
     console.log("in delete");
     $scope.todos.splice(index, 1);
   }
-  
+
   $scope.completeItem = function(index) {
     console.log("in complete");
     $scope.completeItems.push({
@@ -56,5 +61,5 @@ myApp.controller('MainCtrl', function ($scope){
  * - make it prettier
  * - add a due date
  * - add reminder (setInterval)
- * 
+ *
  * *********************/
