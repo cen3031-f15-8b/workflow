@@ -21,6 +21,8 @@ myApp.controller('MainCtrl', function ($scope){
   ];
   $scope.priorities = priority;
 
+  $scope.completeItems = [];
+
   $scope.newItem = "";
   $scope.newItemPriority = priority.NOW;
 
@@ -40,6 +42,13 @@ myApp.controller('MainCtrl', function ($scope){
     console.log("in delete");
     $scope.todos.splice(index, 1);
   }
+
+  $scope.completeItem = function(index) {
+    console.log("in complete");
+    $scope.completeItems.push($scope.todos[index]);
+    $scope.deleteItem(index);
+  }
+
 });
 
 /*************************
