@@ -11,46 +11,60 @@
 
   <body ng-app="app">
     <h1 class="text-center">My little to do app!</h1>
-    
+
     <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
-    <form>
+      <form>
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="submit" ng-click="addItem()">
-              Add
-              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-            </button>
-          </span>
+          <div class="input-group-btn" role="group">
+            <button class="btn btn-default" type="submit" ng-click="addItem()">Add<span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+            <button type="button" class="btn btn-default" ng-click="newItemPriority = priorities.NOW">Now</button>
+            <button type="button" class="btn btn-default" ng-click="newItemPriority = priorities.TOMORROW">Tomorrow</button>
+            <button type="button" class="btn btn-default" ng-click="newItemPriority = priorities.SOMEDAY">Someday</button>
+          </div>
         </div><!-- /input-group -->
-        </form>
+      </form>
       <h2>stuff i gotta do asap</h2>
-      
+      <button id="editorBtn" class="pull-right btn btn-default" type="button" ng-click="toggleEditMode()">{{editmode ? 'Done' : 'Edit Todo List'}}</button>
+      <br>
+      <br>
       <ul class="list-group">
         <!-- http://www.w3schools.com/css/css_float.asp -->
-        <li class="list-group-item clearfix" ng-repeat="do in todos">
-          <span>{{do.text}}</span>
-          <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem($index)">
-            <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
-          </button>
-
-          <!-- Complete Button -->
-          <button class = "btn btn-success pull-right" type="button" ng-click="completeItem($index)">
-            <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
-          </button>
+        <li class="list-group-item clearfix" ng-class="{'list-group-item-danger': do.priority==priorities.NOW,
+                                                        'list-group-item-warning': do.priority==priorities.TOMORROW,
+                                                        'list-group-item-info': do.priority==priorities.SOMEDAY}" ng-repeat="do in todos">
+          <span ng-attr-contenteditable="{{ editmode }}">{{do.text}}</span>
+          <div class="btn-group pull-right">
+            <!-- Complete Button -->
+            <button class = "btn btn-success" type="button" ng-click="completeItem($index)">
+              <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+            </button>
+            <!-- Delete Button -->
+            <button class="btn btn-danger" type="button" ng-click="deleteItem($index)">
+              <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
+            </button>
+          </div>
         </li>
       </ul>
 
       <!-- Completed Items List -->
-      <h2> Completed Items </h2>
+      <h2>
+        Completed Items
+      </h2>
       <ul class="list-group" id="complete">
-        <li class="list-group-item clearfix" ng-repeat="el in completeItems">
+        <li class="list-group-item clearfix" ng-class="{'list-group-item-danger': el.priority==priorities.NOW,
+                                                        'list-group-item-warning': el.priority==priorities.TOMORROW,
+                                                        'list-group-item-info': el.priority==priorities.SOMEDAY}" ng-repeat="el in completeItems">
         <span>{{el.text}}</span>
         </li>
-      </ul>  
+      </ul>
+      <!-- Clear Completed Items Button -->
+      <button class="btn btn-danger" type="button" ng-click="clearCompletedItems()">
+        Clear Completed Items
+      </button>
 
     </div>
-    
+
   </body>
 
 </html>
