@@ -42,12 +42,18 @@
       </ul>
 
       <!-- Completed Items List -->
-      <h2> Completed Items </h2>
+      <h2> 
+        Completed Items 
+      </h2>
       <ul class="list-group" id="complete">
         <li class="list-group-item clearfix" ng-repeat="el in completeItems">
         <span>{{el.text}}</span>
         </li>
       </ul>  
+      <!-- Clear Completed Items Button -->
+      <button class="btn btn-danger" type="button" ng-click="clearCompletedItems()">
+        Clear Completed Items
+      </button>
 
     </div>
     
