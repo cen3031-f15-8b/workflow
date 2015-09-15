@@ -32,14 +32,16 @@
         <!-- http://www.w3schools.com/css/css_float.asp -->
         <li class="list-group-item clearfix" ng-repeat="do in todos">
           <span ng-attr-contenteditable="{{ editmode }}">{{do.text}}</span>
-          <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem($index)">
-            <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
-          </button>
-
-          <!-- Complete Button -->
-          <button class = "btn btn-success pull-right" type="button" ng-click="completeItem($index)">
-            <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
-          </button>
+          <div class="btn-group pull-right">
+            <!-- Complete Button -->
+            <button class = "btn btn-success" type="button" ng-click="completeItem($index)">
+              <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+            </button>
+            <!-- Delete Button -->
+            <button class="btn btn-danger" type="button" ng-click="deleteItem($index)">
+              <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
+            </button>
+          </div>
         </li>
       </ul>
 
