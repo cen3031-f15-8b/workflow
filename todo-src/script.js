@@ -17,10 +17,6 @@ myApp.controller('MainCtrl', function ($scope){
 
   $scope.newItem = "";
 
-  $scope.totalItems = 2;
-
-  document.getElementById("totalItems").innerHTML = $scope.totalItems;
-
   $scope.addItem = function(){
     console.log("in add");
     if ($scope.newItem !== ""){
@@ -28,14 +24,12 @@ myApp.controller('MainCtrl', function ($scope){
         text: $scope.newItem,
       });
       $scope.newItem = "";
-      $scope.totalItems++;
     }
   }
     
   $scope.deleteItem = function(index){
     console.log("in delete");
     $scope.todos.splice(index, 1);
-    $scope.totalItems--;
   }
   
   $scope.completeItem = function(index) {
@@ -44,11 +38,6 @@ myApp.controller('MainCtrl', function ($scope){
       text: $scope.todos[index].text,
     });
     $scope.deleteItem(index);
-  }
-
-  $scope.clearCompletedItems = function() {
-    console.log("in clearCompletedItems");
-    $scope.completeItems.length = 0;
   }
 
 });
